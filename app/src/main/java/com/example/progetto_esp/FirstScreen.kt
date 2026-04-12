@@ -2,20 +2,14 @@ package com.example.progetto_esp
 
 import android.content.res.Configuration
 import androidx.compose.foundation.layout.Arrangement
-import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
-import androidx.compose.foundation.layout.aspectRatio
 import androidx.compose.foundation.layout.fillMaxHeight
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
-import androidx.compose.foundation.layout.width
-import androidx.compose.foundation.lazy.grid.GridCells
-import androidx.compose.foundation.lazy.grid.items
-import androidx.compose.foundation.lazy.grid.LazyVerticalGrid
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material3.Button
 import androidx.compose.material3.ButtonDefaults
@@ -33,7 +27,7 @@ import androidx.compose.ui.unit.sp
 import com.example.progetto_esp.ui.theme.Progetto_espTheme
 
 @Composable
-fun FirstScreen(modifier: Modifier = Modifier) {
+fun FirstScreen(onFirstBtnClicked: () -> Unit, onSecondBtnClicked: () -> Unit) {
     val config = LocalConfiguration.current
     val isLandscape = config.orientation == Configuration.ORIENTATION_LANDSCAPE
 
@@ -130,14 +124,14 @@ fun FirstScreen(modifier: Modifier = Modifier) {
                     horizontalArrangement = Arrangement.spacedBy(16.dp)
                 ) {
                     Button(
-                        onClick = { /*sviluppare*/ },
+                        onClick = onFirstBtnClicked,
                         modifier = Modifier.weight(1f)
                     ) {
                         Text(stringResource(R.string.firstScreenBtn1))
                     }
 
                     Button(
-                        onClick = { /*sviluppare*/ },
+                        onClick = onSecondBtnClicked,
                         modifier = Modifier.weight(1f)
                     ) {
                         Text(stringResource(R.string.firstScreenBtn2))
@@ -238,14 +232,14 @@ fun FirstScreen(modifier: Modifier = Modifier) {
                 horizontalArrangement = Arrangement.spacedBy(16.dp)
             ) {
                 Button(
-                    onClick = { /*sviluppare*/ },
+                    onClick = onFirstBtnClicked,
                     modifier = Modifier.weight(1f)
                 ) {
                     Text(stringResource(R.string.firstScreenBtn1))
                 }
 
                 Button(
-                    onClick = { /*sviluppare*/ },
+                    onClick = onSecondBtnClicked,
                     modifier = Modifier.weight(1f)
                 ) {
                     Text(stringResource(R.string.firstScreenBtn2))
@@ -255,10 +249,11 @@ fun FirstScreen(modifier: Modifier = Modifier) {
     }
 }
 
+/*
 @Preview(showBackground = true)
 @Composable
 fun FirstScreenPreview() {
     Progetto_espTheme {
         FirstScreen()
     }
-}
+} */

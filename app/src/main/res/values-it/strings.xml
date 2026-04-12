@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">progetto_esp</string>
+    <string name="firstScreenMessage">Questa è la sequenza attuale: </string>
+    <string name="firstScreenBtn1">Cancella</string>
+    <string name="firstScreenBtn2">Fine partita</string>
+    <string name="secondScreenMessage">Cronologia delle partite: </string>
+</resources>

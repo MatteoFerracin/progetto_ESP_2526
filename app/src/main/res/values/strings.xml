@@ -1,6 +1,7 @@
 <resources>
-    <string name="app_name">progetto_esp</string>
-    <string name="firstScreenMessage">Questa è la sequenza corrente: </string>
-    <string name="firstScreenBtn1">Bottone 1</string>
-    <string name="firstScreenBtn2">Bottone 2</string>
+    <string name="app_name">project_esp</string>
+    <string name="firstScreenMessage">This is the current section: </string>
+    <string name="firstScreenBtn1">Delete</string>
+    <string name="firstScreenBtn2">End of game</string>
+    <string name="secondScreenMessage">History of games: </string>
 </resources>

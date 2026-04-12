@@ -32,7 +32,13 @@ class MainActivity : ComponentActivity() {
                     ){
                         composable("firstScreen"){
                             FirstScreen(
-                                modifier = Modifier.padding(innerPadding)
+                                onFirstBtnClicked = { /*sviluppare*/ },
+                                onSecondBtnClicked = { navController.navigate("secondScreen") }
+                            )
+                        }
+                        composable("secondScreen"){
+                            SecondScreen(
+                                //
                             )
                         }
                     }
