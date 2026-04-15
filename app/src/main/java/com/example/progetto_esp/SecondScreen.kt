@@ -12,7 +12,6 @@ import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.layout.ModifierLocalBeyondBoundsLayout
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.text.style.TextOverflow
@@ -23,9 +22,7 @@ import com.example.progetto_esp.ui.theme.Progetto_espTheme
 
 
 @Composable
-fun SecondScreen() {
-    val games = listOf("prova", "prova", "prontoooooooooooooooooooooooooooooooooooooooooo", "prova5", "prova45", "prova32")
-
+fun SecondScreen(viewModel: GameViewModel) {
     Column(
         modifier = Modifier
             .fillMaxSize()
@@ -41,7 +38,7 @@ fun SecondScreen() {
             modifier = Modifier.fillMaxSize(),
             verticalArrangement = Arrangement.spacedBy(8.dp)
         ) {
-            items(games) { game ->
+            items(viewModel.gamesList) { game ->
                 Row(
                     modifier = Modifier
                         .padding(16.dp)
@@ -49,12 +46,12 @@ fun SecondScreen() {
                     verticalAlignment = Alignment.CenterVertically
                 ){
                     Text(
-                        text = "3",
+                        text = game.elementsCounter.toString(),
                         modifier = Modifier.weight(0.2f)
                     )
 
                     Text(
-                        text = game,
+                        text = game.lettersSequence,
                         maxLines = 1,
                         overflow = TextOverflow.Ellipsis,
                         modifier = Modifier.weight(0.8f)
@@ -65,10 +62,11 @@ fun SecondScreen() {
     }
 }
 
+/*
 @Preview(showBackground = true)
 @Composable
 fun SecondScreenPreview() {
     Progetto_espTheme {
         SecondScreen()
     }
-}
+}*/

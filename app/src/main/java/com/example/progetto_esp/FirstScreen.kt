@@ -21,13 +21,11 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.platform.LocalConfiguration
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.style.TextAlign
-import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
-import com.example.progetto_esp.ui.theme.Progetto_espTheme
 
 @Composable
-fun FirstScreen(onFirstBtnClicked: () -> Unit, onSecondBtnClicked: () -> Unit) {
+fun FirstScreen(onDeleteClicked: () -> Unit, onEndGameClicked: () -> Unit, viewModel: GameViewModel) {
     val config = LocalConfiguration.current
     val isLandscape = config.orientation == Configuration.ORIENTATION_LANDSCAPE
 
@@ -45,13 +43,13 @@ fun FirstScreen(onFirstBtnClicked: () -> Unit, onSecondBtnClicked: () -> Unit) {
                     horizontalArrangement = Arrangement.spacedBy(8.dp)
                 ) {
                     Button(
-                        onClick = { /*sviluppare*/ },
+                        onClick = { viewModel.addColor("R") },
                         colors = ButtonDefaults.buttonColors(containerColor = Color.Red),
                         modifier = Modifier.fillMaxHeight().weight(1f),
                         shape = RoundedCornerShape(12.dp)
                     ) {}
                     Button(
-                        onClick = { /*sviluppare*/ },
+                        onClick = { viewModel.addColor("G") },
                         colors = ButtonDefaults.buttonColors(containerColor = Color.Green),
                         modifier = Modifier.fillMaxHeight().weight(1f),
                         shape = RoundedCornerShape(12.dp)
@@ -64,13 +62,13 @@ fun FirstScreen(onFirstBtnClicked: () -> Unit, onSecondBtnClicked: () -> Unit) {
                     horizontalArrangement = Arrangement.spacedBy(8.dp)
                 ) {
                     Button(
-                        onClick = { /*sviluppare*/ },
+                        onClick = { viewModel.addColor("B") },
                         colors = ButtonDefaults.buttonColors(containerColor = Color.Blue),
                         modifier = Modifier.fillMaxHeight().weight(1f),
                         shape = RoundedCornerShape(12.dp)
                     ) {}
                     Button(
-                        onClick = { /*sviluppare*/ },
+                        onClick = { viewModel.addColor("M") },
                         colors = ButtonDefaults.buttonColors(containerColor = Color.Magenta),
                         modifier = Modifier.fillMaxHeight().weight(1f),
                         shape = RoundedCornerShape(12.dp)
@@ -83,13 +81,13 @@ fun FirstScreen(onFirstBtnClicked: () -> Unit, onSecondBtnClicked: () -> Unit) {
                     horizontalArrangement = Arrangement.spacedBy(8.dp)
                 ) {
                     Button(
-                        onClick = { /*sviluppare*/ },
+                        onClick = { viewModel.addColor("Y") },
                         colors = ButtonDefaults.buttonColors(containerColor = Color.Yellow),
                         modifier = Modifier.fillMaxHeight().weight(1f),
                         shape = RoundedCornerShape(12.dp)
                     ) {}
                     Button(
-                        onClick = { /*sviluppare*/ },
+                        onClick = { viewModel.addColor("C") },
                         colors = ButtonDefaults.buttonColors(containerColor = Color.Cyan),
                         modifier = Modifier.fillMaxHeight().weight(1f),
                         shape = RoundedCornerShape(12.dp)
@@ -111,7 +109,7 @@ fun FirstScreen(onFirstBtnClicked: () -> Unit, onSecondBtnClicked: () -> Unit) {
                 Spacer(modifier = Modifier.height(20.dp))
 
                 Text(
-                    text = "questa è di prova",
+                    text = viewModel.actualSequence,
                     fontSize = 24.sp,
                     textAlign = TextAlign.Center,
                     modifier = Modifier.fillMaxWidth().weight(1f)
@@ -124,14 +122,14 @@ fun FirstScreen(onFirstBtnClicked: () -> Unit, onSecondBtnClicked: () -> Unit) {
                     horizontalArrangement = Arrangement.spacedBy(16.dp)
                 ) {
                     Button(
-                        onClick = onFirstBtnClicked,
+                        onClick = onDeleteClicked,
                         modifier = Modifier.weight(1f)
                     ) {
                         Text(stringResource(R.string.firstScreenBtn1))
                     }
 
                     Button(
-                        onClick = onSecondBtnClicked,
+                        onClick = onEndGameClicked,
                         modifier = Modifier.weight(1f)
                     ) {
                         Text(stringResource(R.string.firstScreenBtn2))
@@ -154,13 +152,13 @@ fun FirstScreen(onFirstBtnClicked: () -> Unit, onSecondBtnClicked: () -> Unit) {
                     horizontalArrangement = Arrangement.spacedBy(8.dp)
                 ) {
                     Button(
-                        onClick = { /*sviluppare*/ },
+                        onClick = { viewModel.addColor("R") },
                         colors = ButtonDefaults.buttonColors(containerColor = Color.Red),
                         modifier = Modifier.fillMaxHeight().weight(1f),
                         shape = RoundedCornerShape(12.dp)
                     ) {}
                     Button(
-                        onClick = { /*sviluppare*/ },
+                        onClick = { viewModel.addColor("G") },
                         colors = ButtonDefaults.buttonColors(containerColor = Color.Green),
                         modifier = Modifier.fillMaxHeight().weight(1f),
                         shape = RoundedCornerShape(12.dp)
@@ -173,13 +171,13 @@ fun FirstScreen(onFirstBtnClicked: () -> Unit, onSecondBtnClicked: () -> Unit) {
                     horizontalArrangement = Arrangement.spacedBy(8.dp)
                 ) {
                     Button(
-                        onClick = { /*sviluppare*/ },
+                        onClick = { viewModel.addColor("B") },
                         colors = ButtonDefaults.buttonColors(containerColor = Color.Blue),
                         modifier = Modifier.fillMaxHeight().weight(1f),
                         shape = RoundedCornerShape(12.dp)
                     ) {}
                     Button(
-                        onClick = { /*sviluppare*/ },
+                        onClick = { viewModel.addColor("M") },
                         colors = ButtonDefaults.buttonColors(containerColor = Color.Magenta),
                         modifier = Modifier.fillMaxHeight().weight(1f),
                         shape = RoundedCornerShape(12.dp)
@@ -192,13 +190,13 @@ fun FirstScreen(onFirstBtnClicked: () -> Unit, onSecondBtnClicked: () -> Unit) {
                     horizontalArrangement = Arrangement.spacedBy(8.dp)
                 ) {
                     Button(
-                        onClick = { /*sviluppare*/ },
+                        onClick = { viewModel.addColor("Y") },
                         colors = ButtonDefaults.buttonColors(containerColor = Color.Yellow),
                         modifier = Modifier.fillMaxHeight().weight(1f),
                         shape = RoundedCornerShape(12.dp)
                     ) {}
                     Button(
-                        onClick = { /*sviluppare*/ },
+                        onClick = { viewModel.addColor("C") },
                         colors = ButtonDefaults.buttonColors(containerColor = Color.Cyan),
                         modifier = Modifier.fillMaxHeight().weight(1f),
                         shape = RoundedCornerShape(12.dp)
@@ -219,7 +217,7 @@ fun FirstScreen(onFirstBtnClicked: () -> Unit, onSecondBtnClicked: () -> Unit) {
             Spacer(modifier = Modifier.height(20.dp))
 
             Text(
-                text = "questa è di prova",
+                text = viewModel.actualSequence,
                 fontSize = 24.sp,
                 textAlign = TextAlign.Center,
                 modifier = Modifier.fillMaxWidth()
@@ -232,14 +230,14 @@ fun FirstScreen(onFirstBtnClicked: () -> Unit, onSecondBtnClicked: () -> Unit) {
                 horizontalArrangement = Arrangement.spacedBy(16.dp)
             ) {
                 Button(
-                    onClick = onFirstBtnClicked,
+                    onClick = onDeleteClicked,
                     modifier = Modifier.weight(1f)
                 ) {
                     Text(stringResource(R.string.firstScreenBtn1))
                 }
 
                 Button(
-                    onClick = onSecondBtnClicked,
+                    onClick = onEndGameClicked,
                     modifier = Modifier.weight(1f)
                 ) {
                     Text(stringResource(R.string.firstScreenBtn2))

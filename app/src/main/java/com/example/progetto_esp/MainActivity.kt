@@ -1,6 +1,5 @@
 package com.example.progetto_esp
 
-import android.net.Uri
 import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
@@ -11,10 +10,8 @@ import androidx.compose.material3.Scaffold
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
-import androidx.compose.material3.Text
-import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.tooling.preview.Preview
+import androidx.lifecycle.viewmodel.compose.viewModel
 import com.example.progetto_esp.ui.theme.Progetto_espTheme
 
 class MainActivity : ComponentActivity() {
@@ -25,6 +22,8 @@ class MainActivity : ComponentActivity() {
             Progetto_espTheme {
                 val navController = rememberNavController()
 
+                val vm: GameViewModel = viewModel()
+
                 Scaffold(modifier = Modifier.fillMaxSize()) { innerPadding ->
                     NavHost(
                         navController = navController, startDestination = "firstScreen",
@@ -32,12 +31,17 @@ class MainActivity : ComponentActivity() {
                     ){
                         composable("firstScreen"){
                             FirstScreen(
-                                onFirstBtnClicked = { /*sviluppare*/ },
-                                onSecondBtnClicked = { navController.navigate("secondScreen") }
+                                viewModel = vm,
+                                onDeleteClicked = { vm.deleteGame() },
+                                onEndGameClicked = {
+                                    vm.endGame()
+                                    navController.navigate("secondScreen")
+                                }
                             )
                         }
                         composable("secondScreen"){
                             SecondScreen(
+                                viewModel = vm
                                 //
                             )
                         }
