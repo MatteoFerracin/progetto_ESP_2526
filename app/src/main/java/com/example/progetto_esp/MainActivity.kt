@@ -42,7 +42,6 @@ class MainActivity : ComponentActivity() {
                         composable("secondScreen"){
                             SecondScreen(
                                 viewModel = vm
-                                //
                             )
                         }
                     }

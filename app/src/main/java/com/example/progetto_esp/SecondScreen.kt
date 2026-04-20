@@ -15,30 +15,33 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.text.style.TextOverflow
-import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
-import com.example.progetto_esp.ui.theme.Progetto_espTheme
 
 
 @Composable
 fun SecondScreen(viewModel: GameViewModel) {
+    //non viene gestita la differenziazione tra modalità portrait e landscape perchè la disposizione degli elementi si adatta automaticamente in modo adeguato
     Column(
         modifier = Modifier
             .fillMaxSize()
             .padding(16.dp)
     ) {
+        //stringa di testo informativa
         Text(
             text = stringResource(R.string.secondScreenMessage),
             fontSize = 24.sp,
             textAlign = TextAlign.Center,
             modifier = Modifier.fillMaxWidth()
         )
+
+        //LazyColumn per rappresentare la lista che contiene le sequenze
         LazyColumn(
             modifier = Modifier.fillMaxSize(),
             verticalArrangement = Arrangement.spacedBy(8.dp)
         ) {
             items(viewModel.gamesList) { game ->
+                //row per separare la parte iniziale (20%) occupata dal numero di tasti premuti nella sequenza dalla parte successiva (80%) occupata dalla sequenza effettiva formattata con la separazione delle virgole tra una lettera e l'altra
                 Row(
                     modifier = Modifier
                         .padding(16.dp)
@@ -53,6 +56,7 @@ fun SecondScreen(viewModel: GameViewModel) {
                     Text(
                         text = game.lettersSequence,
                         maxLines = 1,
+                        //una sequenza può occupare solamente una riga e se non è possibile che sia rappresentata completamente perchè troppo lunga avviene un troncamento indicato visualmente da tre puntini
                         overflow = TextOverflow.Ellipsis,
                         modifier = Modifier.weight(0.8f)
                     )
@@ -61,12 +65,3 @@ fun SecondScreen(viewModel: GameViewModel) {
         }
     }
 }
-
-/*
-@Preview(showBackground = true)
-@Composable
-fun SecondScreenPreview() {
-    Progetto_espTheme {
-        SecondScreen()
-    }
-}*/
