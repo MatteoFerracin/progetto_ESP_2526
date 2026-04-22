@@ -1,7 +1,6 @@
 package com.example.progetto_esp
 
 import android.content.res.Configuration
-import androidx.compose.foundation.horizontalScroll
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
@@ -13,6 +12,7 @@ import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.shape.RoundedCornerShape
+import androidx.compose.foundation.verticalScroll
 import androidx.compose.material3.Button
 import androidx.compose.material3.ButtonDefaults
 import androidx.compose.material3.Text
@@ -41,7 +41,7 @@ fun FirstScreen(onDeleteClicked: () -> Unit, onEndGameClicked: () -> Unit, viewM
             verticalAlignment = Alignment.CenterVertically
         ){
             //matrice dei pulsanti colorati gestita attraveso una column composta da 3 row di ugual peso, in ogni riga troviamo due bottoni
-            Column(modifier = Modifier.weight(3f).fillMaxHeight()) {
+            Column(modifier = Modifier.weight(1f).fillMaxHeight()) {
                 //prima riga di bottoni (rosso e verde)
                 Row(
                     modifier = Modifier.weight(1f).fillMaxSize(),
@@ -103,30 +103,30 @@ fun FirstScreen(onDeleteClicked: () -> Unit, onEndGameClicked: () -> Unit, viewM
 
             //altra column che si trova a destra della matrice di bottoni colorati che contiene due text (la seconda mostra la sequenza attuale aggiornandosi ad ogni bottone colorato premuto) e una row con i due pulsanti per cancellare la sequenza e per terminare la partita
             Column(
-                modifier = Modifier.fillMaxHeight().weight(3f).padding(8.dp, 20.dp),
+                modifier = Modifier.fillMaxHeight().weight(1f).padding(8.dp, 20.dp),
                 verticalArrangement = Arrangement.Center
             ) {
                 Text(
                     text = stringResource(R.string.firstScreenMessage),
                     fontSize = 24.sp,
                     textAlign = TextAlign.Center,
-                    modifier = Modifier.fillMaxWidth().weight(1f)
+                    modifier = Modifier.fillMaxWidth().weight(0.5f)
                 )
 
-                Spacer(modifier = Modifier.height(20.dp))
+                Spacer(modifier = Modifier.height(10.dp))
 
                 Text(
                     text = viewModel.actualSequence,
                     fontSize = 24.sp,
                     textAlign = TextAlign.Center,
-                    //se la sequenza è troppo lunga per apparire tutta sullo schermo è possibile scorrerci sopra orizzontalmente per vedere le parti nascoste
-                    modifier = Modifier.fillMaxWidth().weight(1f).horizontalScroll(rememberScrollState())
+                    //se la sequenza è troppo lunga per apparire tutta sullo schermo è possibile scorrerci sopra verticalmente per vedere le parti nascoste
+                    modifier = Modifier.fillMaxWidth().weight(2f).verticalScroll(rememberScrollState())
                 )
 
                 Spacer(modifier = Modifier.height(20.dp))
 
                 Row(
-                    modifier = Modifier.fillMaxWidth().weight(1f),
+                    modifier = Modifier.fillMaxWidth().weight(0.6f),
                     horizontalArrangement = Arrangement.spacedBy(16.dp)
                 ) {
                     Button(
@@ -225,24 +225,24 @@ fun FirstScreen(onDeleteClicked: () -> Unit, onEndGameClicked: () -> Unit, viewM
                 text = stringResource(R.string.firstScreenMessage),
                 fontSize = 24.sp,
                 textAlign = TextAlign.Center,
-                modifier = Modifier.fillMaxWidth()
+                modifier = Modifier.fillMaxWidth().weight(0.3f)
             )
 
-            Spacer(modifier = Modifier.height(20.dp))
+            Spacer(modifier = Modifier.height(10.dp))
 
             Text(
                 text = viewModel.actualSequence,
                 fontSize = 24.sp,
                 textAlign = TextAlign.Center,
-                //se la sequenza è troppo lunga per apparire completamente sullo schermo è possibile scorrerci sopra orizzontalmente per vedere le parti nascoste
-                modifier = Modifier.fillMaxWidth().horizontalScroll(rememberScrollState())
+                //se la sequenza è troppo lunga per apparire completamente sullo schermo è possibile scorrerci sopra verticalmente per vedere le parti nascoste
+                modifier = Modifier.fillMaxWidth().weight(1f).verticalScroll(rememberScrollState())
             )
 
-            Spacer(modifier = Modifier.height(24.dp))
+            Spacer(modifier = Modifier.height(20.dp))
 
             //row con i due pulsanti per cancellare la sequenza attuale e per terminare la partita
             Row(
-                modifier = Modifier.fillMaxWidth(),
+                modifier = Modifier.fillMaxWidth().weight(0.5f),
                 horizontalArrangement = Arrangement.spacedBy(16.dp)
             ) {
                 Button(

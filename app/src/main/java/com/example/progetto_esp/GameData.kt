@@ -42,11 +42,18 @@ class GameViewModel: ViewModel(){
         if(!actualSequence.isEmpty()){
             val newSequence = Sequence(actualCounter, actualSequence)
 
+            //l'ultima partita giocata viene inserita in testa in modo tale da mostrare le partite più recenti nella seconda schermata
             gamesList.add(0, newSequence)
 
             //azzeramento del conteggio e della sequenza attuale in attesa della prossima partita
             actualCounter = 0
             actualSequence = ""
+        }
+        //se non viene schiacciato nessun bottone colorato e viene terminata la partita (quindi con una stringa vuota) salviamo lo stesso la partita che avrà 0 come contatore dei tasti premuti e un carattere '/' come indicatore di stringa vuota, non è necessario riazzerare actualCounter e actualSequence perchè sono già azzerati
+        else{
+            val newSequence = Sequence(actualCounter, "/")
+
+            gamesList.add(0, newSequence)
         }
     }
 }

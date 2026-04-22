@@ -35,7 +35,7 @@ fun SecondScreen(viewModel: GameViewModel) {
             modifier = Modifier.fillMaxWidth()
         )
 
-        //LazyColumn per rappresentare la lista che contiene le sequenze
+        //LazyColumn per rappresentare la lista che contiene le sequenze, in questa configurazione mostra l'elemento in testa alla coda in alto, ovvero per come è stata gestita la lista la partita più recente
         LazyColumn(
             modifier = Modifier.fillMaxSize(),
             verticalArrangement = Arrangement.spacedBy(8.dp)
