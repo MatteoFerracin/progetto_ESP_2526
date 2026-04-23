@@ -106,6 +106,7 @@ fun FirstScreen(onDeleteClicked: () -> Unit, onEndGameClicked: () -> Unit, viewM
                 modifier = Modifier.fillMaxHeight().weight(1f).padding(8.dp, 20.dp),
                 verticalArrangement = Arrangement.Center
             ) {
+                //stringa di testo informativa
                 Text(
                     text = stringResource(R.string.firstScreenMessage),
                     fontSize = 24.sp,
@@ -115,6 +116,7 @@ fun FirstScreen(onDeleteClicked: () -> Unit, onEndGameClicked: () -> Unit, viewM
 
                 Spacer(modifier = Modifier.height(10.dp))
 
+                //area di testo multiriga dove compare la sequenza
                 Text(
                     text = viewModel.actualSequence,
                     fontSize = 24.sp,
@@ -221,6 +223,7 @@ fun FirstScreen(onDeleteClicked: () -> Unit, onEndGameClicked: () -> Unit, viewM
 
             Spacer(modifier = Modifier.height(24.dp))
 
+            //stringa di testo informativa
             Text(
                 text = stringResource(R.string.firstScreenMessage),
                 fontSize = 24.sp,
@@ -230,6 +233,7 @@ fun FirstScreen(onDeleteClicked: () -> Unit, onEndGameClicked: () -> Unit, viewM
 
             Spacer(modifier = Modifier.height(10.dp))
 
+            //area di testo multiriga dove compare la sequenza
             Text(
                 text = viewModel.actualSequence,
                 fontSize = 24.sp,
