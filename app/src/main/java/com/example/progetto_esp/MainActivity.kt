@@ -26,21 +26,27 @@ class MainActivity : ComponentActivity() {
 
                 Scaffold(modifier = Modifier.fillMaxSize()) { innerPadding ->
                     NavHost(
-                        navController = navController, startDestination = "firstScreen",
+                        navController = navController, startDestination = "gameScreen",
                         modifier = Modifier.padding(innerPadding)
                     ){
-                        composable("firstScreen"){
-                            FirstScreen(
+                        composable("gameScreen"){
+                            GameScreen(
                                 viewModel = vm,
                                 onDeleteClicked = { vm.deleteGame() },
                                 onEndGameClicked = {
                                     vm.endGame()
-                                    navController.navigate("secondScreen")
+                                    navController.navigate("sequenceListScreen")
                                 }
                             )
                         }
-                        composable("secondScreen"){
-                            SecondScreen(
+                        composable("sequenceListScreen"){
+                            SequenceListScreen(
+                                viewModel = vm,
+                                onSequenceClicked = { navController.navigate("sequenceDetailScreen") }
+                            )
+                        }
+                        composable("sequenceDetailScreen"){
+                            SequenceDetailScreen(
                                 viewModel = vm
                             )
                         }

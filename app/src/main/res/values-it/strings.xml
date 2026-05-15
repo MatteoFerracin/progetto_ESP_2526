@@ -4,4 +4,5 @@
     <string name="firstScreenBtn1">Cancella</string>
     <string name="firstScreenBtn2">Fine partita</string>
     <string name="secondScreenMessage">Cronologia delle partite: </string>
+    <string name="sequenceDetailMessage">Dettaglio della partita: </string>
 </resources>

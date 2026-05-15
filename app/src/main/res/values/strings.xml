@@ -4,4 +4,5 @@
     <string name="firstScreenBtn1">Delete</string>
     <string name="firstScreenBtn2">End of game</string>
     <string name="secondScreenMessage">History of games: </string>
+    <string name="sequenceDetailMessage">Detail of the game: </string>
 </resources>

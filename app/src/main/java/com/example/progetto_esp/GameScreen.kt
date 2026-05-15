@@ -27,7 +27,7 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 
 @Composable
-fun FirstScreen(onDeleteClicked: () -> Unit, onEndGameClicked: () -> Unit, viewModel: GameViewModel) {
+fun GameScreen(onDeleteClicked: () -> Unit, onEndGameClicked: () -> Unit, viewModel: GameViewModel) {
     val config = LocalConfiguration.current
     //per gestire il cambio di configurazione tra modalità portrait e landscape, ritorna true se ci troviamo in modalità landscape, false altrimenti
     val isLandscape = config.orientation == Configuration.ORIENTATION_LANDSCAPE

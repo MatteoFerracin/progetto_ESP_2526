@@ -1,5 +1,6 @@
 package com.example.progetto_esp
 
+import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
@@ -20,7 +21,7 @@ import androidx.compose.ui.unit.sp
 
 
 @Composable
-fun SecondScreen(viewModel: GameViewModel) {
+fun SequenceListScreen(onSequenceClicked: () -> Unit, viewModel: GameViewModel) {
     //non viene gestita la differenziazione tra modalità portrait e landscape perchè la disposizione degli elementi si adatta automaticamente in modo adeguato
     Column(
         modifier = Modifier
@@ -45,7 +46,8 @@ fun SecondScreen(viewModel: GameViewModel) {
                 Row(
                     modifier = Modifier
                         .padding(16.dp)
-                        .fillMaxWidth(),
+                        .fillMaxWidth()
+                        .clickable{ onSequenceClicked() } ,
                     verticalAlignment = Alignment.CenterVertically
                 ){
                     Text(
