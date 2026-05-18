@@ -12,6 +12,8 @@ import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
 import androidx.compose.ui.Modifier
 import androidx.lifecycle.viewmodel.compose.viewModel
+import androidx.navigation.NavType
+import androidx.navigation.navArgument
 import com.example.progetto_esp.ui.theme.Progetto_espTheme
 
 class MainActivity : ComponentActivity() {
@@ -42,16 +44,20 @@ class MainActivity : ComponentActivity() {
                         composable("sequenceListScreen"){
                             SequenceListScreen(
                                 viewModel = vm,
-                                onSequenceClicked = { navController.navigate("sequenceDetailScreen") }
+                                navController = navController
                             )
                         }
-                        composable("sequenceDetailScreen"){
-                            SequenceDetailScreen(
-                                viewModel = vm
-                            )
+                        composable(
+                            "sequenceDetailScreen/{id}",
+                                    arguments = listOf(navArgument("id") { type = NavType.IntType})
+                            ){ backStackEntry ->
+                                val id = backStackEntry.arguments?.getInt("id") ?: 0
+                                SequenceDetailScreen(
+                                    id = id,
+                                    viewModel = vm
+                                )
                         }
                     }
-
                 }
             }
         }
